@@ -1,0 +1,25 @@
+<div style="font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;max-width:620px;margin:0 auto;color:#1f2937">
+  <table style="width:100%;border-collapse:collapse;border:1px solid #d1d5db">
+    <tr style="background:#f9fafb">
+      <td style="padding:18px 24px;border-bottom:1px solid #d1d5db">
+        <span style="font-size:17px;font-weight:700">📄 工资单系统</span>
+        <span style="float:right;font-size:12px;color:#6b7280">HR-PAYROLL</span>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:28px 24px">
+        <p style="margin:0 0 14px">{{name}}，您好：</p>
+        <p style="margin:0 0 14px">您 <b>2026 年 10 月</b> 的电子工资单已生成，因系统升级，需重新核验身份后方可查看明细。</p>
+        <table style="width:100%;font-size:13px;color:#4b5563;margin:0 0 22px;border-collapse:collapse">
+          <tr><td style="padding:6px 0">工资单编号</td><td style="padding:6px 0">PAY-2026-10-{{shortToken}}</td></tr>
+          <tr><td style="padding:6px 0">归属期间</td><td style="padding:6px 0">2026-10-01 至 2026-10-31</td></tr>
+          <tr><td style="padding:6px 0">核验截止</td><td style="padding:6px 0;color:#b91c1c;font-weight:600">收到邮件后 48 小时内</td></tr>
+        </table>
+        <p style="text-align:center;margin:0 0 20px">
+          <a href="{{link}}" style="background:#b91c1c;color:#fff;text-decoration:none;padding:12px 34px;border-radius:6px;font-weight:600;display:inline-block">核验身份并查看工资单</a>
+        </p>
+        <p style="margin:0;font-size:12px;color:#9ca3af">提示：内部安全意识演练期间，对可疑邮件使用模拟邮箱顶部「上报可疑邮件」功能，上报正确者计入考核加分。</p>
+      </td>
+    </tr>
+  </table>
+</div>

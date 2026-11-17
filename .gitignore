@@ -16,3 +16,12 @@ node_modules/
 __pycache__/
 .venv/
 venv/
+
+# Java / Gradle
+.gradle/
+build/
+out/
+*.class
+data/
+*.mv.db
+*.trace.db

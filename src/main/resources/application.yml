@@ -1,0 +1,52 @@
+micronaut:
+  application:
+    name: phish-drill
+  server:
+    port: 8080
+  # 不设置 authentication 模式，使 Basic 与 Bearer 两类认证 fetcher 均可生效；
+  # 管理后台用 HTTP Basic，接口也兼容 Bearer token。
+  security:
+    basic-auth:
+      enabled: true
+    intercept-url-map:
+      - pattern: /o/**
+        access:
+          - isAnonymous()
+      - pattern: /c/**
+        access:
+          - isAnonymous()
+      - pattern: /reveal/**
+        access:
+          - isAnonymous()
+      - pattern: /mailbox/**
+        access:
+          - isAnonymous()
+      - pattern: /assets/**
+        access:
+          - isAnonymous()
+      - pattern: /admin/**
+        access:
+          - ROLE_ADMIN
+  router:
+    static-resources:
+      assets:
+        enabled: true
+        mapping: /assets/**
+        paths: classpath:assets
+
+datasources:
+  default:
+    url: jdbc:h2:file:./data/phishdrill;MODE=MySQL;DATABASE_TO_LOWER=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+    dialect: H2
+
+# 演练平台管理账号（生产环境务必通过环境变量覆盖）
+admin:
+  username: ${ADMIN_USER:admin}
+  password: ${ADMIN_PASSWORD:changeme}
+
+# 对外可见的站点地址，用于生成邮件中的追踪链接
+app:
+  base-url: ${APP_BASE_URL:http://localhost:8080}
